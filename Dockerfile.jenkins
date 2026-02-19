@@ -1,0 +1,8 @@
+FROM jenkins/jenkins:lts
+
+USER root
+
+# install docker client only (no downloads from debian repo)
+COPY --from=docker:27-cli /usr/local/bin/docker /usr/local/bin/docker
+
+USER jenkins
